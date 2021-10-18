@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205253332227776638}
-  m_LocalRotation: {x: 0.5829812, y: 0.3830993, z: -0.5740239, w: 0.42879426}
+  m_LocalRotation: {x: -0.6779223, y: -0.45195618, z: 0.46482944, w: -0.3465411}
   m_LocalPosition: {x: -0.0003285684, y: 0.0035107785, z: -0.0022679705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6028160985856674883}
   m_Father: {fileID: 3554190798128398456}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 52.746, y: -39.171, z: -131.9}
+  m_LocalEulerAnglesHint: {x: 117.12399, y: 44.050003, z: -399.6}
 --- !u!895512359 &5992098931023842159
 AimConstraint:
   m_ObjectHideFlags: 0
@@ -41,8 +41,8 @@ AimConstraint:
   m_GameObject: {fileID: 205253332227776638}
   m_Enabled: 1
   m_Weight: 1
-  m_RotationAtRest: {x: 70.36226, y: -90, z: -177.89488}
-  m_RotationOffset: {x: -5.8260846, y: 170.06978, z: 9.9302225}
+  m_RotationAtRest: {x: 63.874695, y: -135.59915, z: 139.70297}
+  m_RotationOffset: {x: 71.65036, y: -90.00005, z: 90}
   m_AimVector: {x: 0, y: 0, z: 1}
   m_UpVector: {x: 0, y: 1, z: 0}
   m_WorldUpVector: {x: 0, y: 1, z: 0}
@@ -51,10 +51,10 @@ AimConstraint:
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_IsContraintActive: 1
+  m_IsContraintActive: 0
   m_IsLocked: 1
   m_Sources:
-  - sourceTransform: {fileID: 0}
+  - sourceTransform: {fileID: 5343063331668062615, guid: f01f84849b6af5249a2b7ba9a8271576, type: 3}
     weight: 1
 --- !u!1 &262152172138100477
 GameObject:
@@ -1046,14 +1046,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8938450939896855634}
-  m_LocalRotation: {x: -0.4288714, y: 0.573992, z: 0.38311476, w: 0.58294576}
+  m_LocalRotation: {x: -0.4608242, y: 0.67095286, z: 0.30785736, w: 0.49263287}
   m_LocalPosition: {x: -0.0004802863, y: 0.0035649133, z: 0.002114394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6557917032054162015}
   m_Father: {fileID: 3554190798128398456}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -28.02, y: 166.827, z: -67.639}
+  m_LocalEulerAnglesHint: {x: -60.129, y: 130.745, z: -39.242}
 --- !u!895512359 &5992098931023842156
 AimConstraint:
   m_ObjectHideFlags: 0
@@ -1063,8 +1063,8 @@ AimConstraint:
   m_GameObject: {fileID: 8938450939896855634}
   m_Enabled: 1
   m_Weight: 1
-  m_RotationAtRest: {x: -70.36226, y: 90, z: -2.1051226}
-  m_RotationOffset: {x: 5.957221, y: -9.529936, z: 170.47006}
+  m_RotationAtRest: {x: -0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 92.10512, z: 19.637735}
   m_AimVector: {x: 0, y: 0, z: 1}
   m_UpVector: {x: 0, y: 1, z: 0}
   m_WorldUpVector: {x: 0, y: 1, z: 0}
@@ -1073,8 +1073,8 @@ AimConstraint:
   m_AffectRotationX: 1
   m_AffectRotationY: 1
   m_AffectRotationZ: 1
-  m_IsContraintActive: 1
+  m_IsContraintActive: 0
   m_IsLocked: 1
   m_Sources:
-  - sourceTransform: {fileID: 0}
+  - sourceTransform: {fileID: 5343063331668062615, guid: f01f84849b6af5249a2b7ba9a8271576, type: 3}
     weight: 1

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 910e13e5b79d0ef419c188039a3e573c
+guid: d0fbe232d1e4fc448b7526c82fdbaaa6
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: butilka
-    second: {fileID: 2100000, guid: 7e4099d772c828d4ebeb52e1a8d9611b, type: 2}
+      name: racovina
+    second: {fileID: 2100000, guid: 9b7075e35af359e49b90849117bcc9f5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
