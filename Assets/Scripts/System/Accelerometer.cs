@@ -7,14 +7,9 @@ public class Accelerometer : MonoBehaviour
     [SerializeField] private int maxShift = 0; // px
     [SerializeField] private int maxAngle = 0;
 
-    private float _halfMaxShift => maxShift / 2;
-
-    private float _shiftX => Mathf.Abs(transform.position.x - _defaultX);
-    private float _shiftZ => Mathf.Abs(transform.position.z - _defaultZ);
+    private float _doubleShift => maxShift * 2;
 
     private const int sideSpeed = 20;
-
-    private float _lastUpdate;
 
     private float _defaultX;
     private float _defaultY;
@@ -42,49 +37,24 @@ public class Accelerometer : MonoBehaviour
         {
             Vector3 newPos = transform.position;
 
-            // force
-            float forceX = _forceX - (Input.acceleration.x / 10);
-            _forceX = forceX < 0 ? Mathf.Max(-1, forceX) : Mathf.Min(1, forceX);
+            // target positions
+            float targetX = maxShift * Input.acceleration.x;
+            float targetZ = maxShift / 4 * Input.acceleration.z;
 
-            float forceZ = _forceZ - (Input.acceleration.z / 10);
-            _forceZ = forceZ < 0 ? Mathf.Max(-1, forceZ) : Mathf.Min(1, forceZ);
+            // force
+            float forceX = _forceX + ((targetX - (transform.position.x - _defaultX)) / _doubleShift);
+            _forceX = forceX < 0 ? Mathf.Max(-1, Input.acceleration.x) : Mathf.Min(1, Input.acceleration.x);
+
+            float forceZ = _forceZ + ((targetZ - (transform.position.z - _defaultZ)) / _doubleShift);
+            _forceZ = forceZ < 0 ? Mathf.Max(-1, Input.acceleration.z) : Mathf.Min(1, Input.acceleration.z);
 
             // delta
-            float deltaX = maxShift * _forceX;
-            float deltaZ = maxShift / 4 * _forceZ;
-
-            // speed curve
-            float speedX;
-            float speedZ;
-
-            if (forceX > 0)
-            {
-                speedX = transform.position.x > _defaultX
-                    ? sideSpeed * (maxShift - _shiftX) / maxShift
-                    : sideSpeed;
-            } else
-            {
-                speedX = transform.position.x < _defaultX
-                    ? sideSpeed * (maxShift - _shiftX) / maxShift
-                    : sideSpeed;
-            }
-
-            if (forceZ > 0)
-            {
-                speedZ = transform.position.z > _defaultZ
-                    ? sideSpeed * (maxShift - _shiftZ) / maxShift
-                    : sideSpeed;
-            }
-            else
-            {
-                speedZ = transform.position.z < _defaultZ
-                    ? sideSpeed * (maxShift - _shiftZ) / maxShift
-                    : sideSpeed;
-            }
+            float deltaX = maxShift * forceX;
+            float deltaZ = maxShift / 4 * forceZ;
 
             // move
-            newPos.x = Mathf.Lerp(newPos.x, _defaultX + deltaX, Time.deltaTime * Mathf.Max(speedX, 0.1f));
-            newPos.z = Mathf.Lerp(newPos.z, _defaultZ + deltaZ, Time.deltaTime * Mathf.Max(speedZ, 0.1f));
+            newPos.x = Mathf.Lerp(newPos.x, _defaultX + deltaX, Time.deltaTime * Mathf.Max(sideSpeed * forceX, 1));
+            newPos.z = Mathf.Lerp(newPos.z, _defaultZ + deltaZ, Time.deltaTime * Mathf.Max(sideSpeed * forceZ, 1));
 
             transform.position = newPos;
         }
